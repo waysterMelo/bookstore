@@ -14,13 +14,11 @@
 	rel="stylesheet">
 
 </head>
-<body>
-
 <style>
         <%@include file="../css/indexStyle.css" %>
 </style>
 
-
+<body>
 	<header>
 		<jsp:include page="header.jsp"></jsp:include>
 	</header>
