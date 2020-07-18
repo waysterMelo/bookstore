@@ -30,14 +30,13 @@ public class UserDao extends JpaDao<Users> implements GenericDao<Users> {
 
 		@Override
 		public void remove(Object id) {
-			// TODO Auto-generated method stub
-			
+			super.delete(Users.class, id);
 		}
 
 		@Override
-		public Object get(Object id) {
-			// TODO Auto-generated method stub
-			return null;
+		public Users get(Object user_id) {
+			return super.find(Users.class, user_id);
+			
 		}
 
 		@Override

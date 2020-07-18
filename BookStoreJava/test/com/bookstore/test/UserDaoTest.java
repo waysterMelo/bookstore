@@ -29,7 +29,8 @@ public class UserDaoTest {
 
 //    @Test
 //    public void create() {
-//        Users user1 = new Users();  user1.setNome("junit test 2");
+//        Users user1 = new Users();
+//        user1.setNome("junit test 2");
 //        user1.setEmail("junit@gmail.com");
 //        user1.setSenha("deus");
 //
@@ -56,6 +57,29 @@ public class UserDaoTest {
 //
 //        assertEquals(expected, actual);
 //    }
+    
+//    @Test
+//    public void testFindId() {
+//    	Integer id = 19;
+//    	Users user = userDao.get(id);
+//    	String email = user.getEmail();
+//    	System.out.println(email);
+//    	assertNotNull(user); 
+//    	
+//    }
+    
+//    @Test
+//    public void testDelete() {
+//    	Integer id_user = 20;
+//    	Users user = userDao.get(id_user);
+//
+//    	userDao.remove(id_user);
+//    	    	
+//    	assertNull(user);
+//    	
+//    }
+    
+    
 
     @AfterClass
     public static void afterClass(){
