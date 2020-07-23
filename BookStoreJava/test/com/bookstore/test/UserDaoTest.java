@@ -13,6 +13,9 @@ import javax.persistence.PersistenceException;
 
 import static org.junit.Assert.*;
 
+import java.util.Iterator;
+import java.util.List;
+
 public class UserDaoTest {
 
     private static EntityManagerFactory entityManagerFactory;
@@ -30,7 +33,7 @@ public class UserDaoTest {
 //    @Test
 //    public void create() {
 //        Users user1 = new Users();
-//        user1.setNome("junit test 2");
+//        user1.setNome("wayster H");
 //        user1.setEmail("junit@gmail.com");
 //        user1.setSenha("deus");
 //
@@ -78,6 +81,28 @@ public class UserDaoTest {
 //    	assertNull(user);
 //    	
 //    }
+    
+    
+//    @Test
+//    public void testFindAll() {
+//    	List<Users> list = userDao.listAll();
+//    	for (Users users : list) {
+//			System.out.println(users.getEmail());
+//		}
+//    	assertTrue(list.size() > 0);
+//    }
+    
+    
+//    @Test
+//    public void teste() {
+//    	long totalUsers = userDao.count();
+//    	assertEquals(1, totalUsers);
+//    }
+    
+    
+    
+    
+    
     
     
 

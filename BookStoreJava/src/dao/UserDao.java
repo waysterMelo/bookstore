@@ -24,8 +24,7 @@ public class UserDao extends JpaDao<Users> implements GenericDao<Users> {
 
 		@Override
 		public List<Users> listAll() {
-			// TODO Auto-generated method stub
-			return null;
+			return super.findWithNamedQuery("Users.findAll");
 		}
 
 		@Override
@@ -41,8 +40,7 @@ public class UserDao extends JpaDao<Users> implements GenericDao<Users> {
 
 		@Override
 		public long count() {
-			// TODO Auto-generated method stub
-			return 0;
+			return super.countWithName("Users.countAll");
 		}
 
 }

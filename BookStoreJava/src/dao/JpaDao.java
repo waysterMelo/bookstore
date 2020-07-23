@@ -1,6 +1,11 @@
 package dao;
 
+
+
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 public class JpaDao<E> {
 
@@ -41,4 +46,13 @@ public class JpaDao<E> {
 		entityManager.getTransaction().commit(); 
 	}
 	
+	public List<E> findWithNamedQuery(String queryName){
+		Query query = entityManager.createNamedQuery(queryName);
+		return query.getResultList();
+	}
+	
+	public long countWithName(String name) {
+		Query query = entityManager.createNamedQuery(name);
+		return (long) query.getSingleResult();
+	}
 }
