@@ -33,8 +33,8 @@ public class UserDaoTest {
 //    @Test
 //    public void create() {
 //        Users user1 = new Users();
-//        user1.setNome("wayster H");
-//        user1.setEmail("junit@gmail.com");
+//        user1.setNome("Maria M");
+//        user1.setEmail("maria@gmail.com");
 //        user1.setSenha("deus");
 //
 //        user1 = userDao.create(user1);

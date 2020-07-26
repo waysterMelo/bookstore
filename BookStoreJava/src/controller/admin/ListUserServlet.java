@@ -1,6 +1,7 @@
 package controller.admin;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,26 +10,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin/")
-public class ServletAdmin extends HttpServlet {
+import entity.Users;
+import service.UserService;
+
+@WebServlet("/admin/list_users")
+public class ListUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public ServletAdmin() {
-        super();
-      
+ 
+    public ListUserServlet() {
+     super(); 
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String page = "/admin/index.jsp";
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+		UserService user_service = new UserService();
+		List<Users> list_users = user_service.list();
+		request.setAttribute("listUsers", list_users); 
+		
+		String path = "user_list.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 		
+		
 	}
-
 
 }

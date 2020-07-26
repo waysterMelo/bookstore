@@ -23,12 +23,12 @@
 		<jsp:include page="header.jsp"></jsp:include>
 	</header>
 
-	<div class="container-fluid" id="headerback">
+	<div class="container-fluid " id="headerback">
 		<div class="col-md-12">
 
 			<div class="text-center">
 				<div class="py-5">
-					<h1 class="display-3 text-primary font-weight-lighter">Searching
+					<h1 class="display-2 text-primary font-weight-bold">Searching
 						your desire book</h1>
 					<div class="row justify-content-center">
 						<div class="d-flex">
