@@ -23,9 +23,14 @@
 		<div class="jumbotron">
 		<h1 class="display-4">List of Users</h1>
 		<p class="lead">here you'll find all users in your database </p>
-		<a class="btn btn-md btn-success" href="/create_user">create a new user</a>
+		<a class="btn btn-md btn-success" href="create_user">create a new user</a>
 	</div>
 	<div class="row">
+	<c:if test="${message != null }">
+		<div>
+			<h1 align="center" class="alert alert-success">${message}</h1>
+	</div>
+	</c:if>
 		
 		<table data-role="table" id="table-1" class="ui-responsive table" cellspacing="5">
 			<thead>

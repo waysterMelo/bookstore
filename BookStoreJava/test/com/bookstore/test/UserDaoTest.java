@@ -100,8 +100,15 @@ public class UserDaoTest {
 //    }
     
     
-    
-    
+//    @Test
+//    public void testFindbyEmail() {
+//    	String email= "waystermelo@gmail.com";
+//    	Users users = userDao.findByEmail(email);
+//    	
+//    	assertNotNull(users); 
+//    	
+//    }
+//    
     
     
     
