@@ -50,9 +50,9 @@
 					<td>${user.nome}</td>
 					<td>${user.email}</td>
 					<td>
-					<a href="" class="text-light btn btn-dark btn-md">Edit</a>
+					<a href="edit_user?id=${user.userId}" class="text-light btn btn-dark btn-md">Edit</a>
 					<span class="border-left mx-2"></span>
-					<a href="" class="text-light btn btn-danger btn-md">Remove</a>
+					<a href="javascript:confirmDelete(${user.userId})" class="text-light btn btn-danger btn-md">Remove</a>
 					</td>
 				</tr>
 				</c:forEach>
@@ -66,5 +66,13 @@
 
 
 <jsp:include page="footer.jsp"></jsp:include>
+
+<script>
+	function confirmDelete(userId){
+			if (confirm("Are you sure you want to delete this user " + userId + " ? ")) {
+				window.location = 'delete_user?user_id=' + userId;
+			}
+		}
+</script>
 </body>
 </html>

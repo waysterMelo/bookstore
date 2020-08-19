@@ -63,14 +63,52 @@ public class UserService {
 		}else {
 			Users newUsers = new Users(name, password, email);
 			userdao.create(newUsers);
+			String msg =  "User was created successfully";
+			list(msg); 
+			
 		}
 		 
-		
+		 
 	}
-
 	
 	public void list() throws ServletException, IOException{
 		
 		list(null); 
 	}
-}
+
+	public void edit_user() throws ServletException, IOException {
+		int userId = Integer.parseInt(request.getParameter("id"));
+		Users user = userdao.get(userId);
+	
+		String path = "user_form.jsp";
+		request.setAttribute("user", user);
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response); 
+		
+	}
+
+	public void updateUser() throws ServletException, IOException {
+		
+		int userId  = Integer.parseInt(request.getParameter("userId"));
+		String email = request.getParameter("email");
+		String name = request.getParameter("name");
+		String senha = request.getParameter("password");
+		
+		
+		
+		Users users = new Users(userId, name, senha, email);
+		userdao.update(users);
+		
+		String msg = "User has updated successfully";
+		list(msg);  
+				
+	}
+	
+	public void deleteUser() throws ServletException, IOException {
+		int userId = Integer.parseInt(request.getParameter("user_id"));
+		userdao.remove(userId); 
+		String msg = "User has been deleted successfully";
+		list(msg); 
+		
+	}
+} 

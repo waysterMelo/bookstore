@@ -8,12 +8,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="">Home Page <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home Page <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Books more sales</a>
       </li>
-    
+     <li class="nav-item">
+        <a class="nav-link" href="admin/">admin</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link text-white font-weight-bold" href="" id="menu3">New Books</a>
       </li>

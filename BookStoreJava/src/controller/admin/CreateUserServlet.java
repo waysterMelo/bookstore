@@ -34,9 +34,7 @@ public class CreateUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
 		UserService userS =  new UserService(req, resp);
-		userS.createUser(); 
-		userS.list("User was created successfully");
-		
+		userS.createUser();		
 		
 	}
 

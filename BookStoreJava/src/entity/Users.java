@@ -22,30 +22,44 @@ import javax.persistence.Table;
 }) 
 public class Users implements java.io.Serializable {
 
-	private Integer userId;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer user_id;
 	private String nome;
 	private String senha;
 	private String email;
-
+	
 	public Users() {
+		
+	}
+
+	
+	public Users(Integer userId, String nome, String senha, String email) {
+		this(nome, senha, email);
+		this.user_id =  userId;
 	}
 
 	public Users(String nome, String senha, String email) {
+		super();
 		this.nome = nome;
 		this.senha = senha;
 		this.email = email;
 	}
+	
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "user_id", unique = true, nullable = false)
 	public Integer getUserId() {
-		return this.userId;
+		return this.user_id;
 	}
 
 	public void setUserId(Integer userId) {
-		this.userId = userId;
+		this.user_id = userId;
 	}
 
 	@Column(name = "nome")
