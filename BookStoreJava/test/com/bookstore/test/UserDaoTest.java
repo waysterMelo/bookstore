@@ -16,16 +16,14 @@ import static org.junit.Assert.*;
 import java.util.Iterator;
 import java.util.List;
 
-public class UserDaoTest {
+public class UserDaoTest extends BaseDaoTest {
 
-    private static EntityManagerFactory entityManagerFactory;
-    private static EntityManager entityManager;
+
     private static UserDao userDao;
 
     @BeforeClass
-    public static void setupClass(){
-    entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebsite");
-    entityManager = entityManagerFactory.createEntityManager();
+    public static void setupClass() throws Exception{
+    	BaseDaoTest.setupInitClass(); 
          userDao = new UserDao(entityManager);
     }
 
@@ -109,13 +107,10 @@ public class UserDaoTest {
 //    	
 //    }
 //    
-    
-    
-    
+
 
     @AfterClass
-    public static void afterClass(){
-        entityManager.close();
-        entityManagerFactory.close();
+    public static void afterClass() throws Exception{
+      BaseDaoTest.setupAfterClass(); 
     }
 }

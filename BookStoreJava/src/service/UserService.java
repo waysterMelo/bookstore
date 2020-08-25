@@ -76,6 +76,8 @@ public class UserService {
 		list(null); 
 	}
 
+	
+//	shows form with data to updated
 	public void edit_user() throws ServletException, IOException {
 		int userId = Integer.parseInt(request.getParameter("id"));
 		Users user = userdao.get(userId);

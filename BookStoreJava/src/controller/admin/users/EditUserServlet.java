@@ -1,4 +1,4 @@
-package controller.admin;
+package controller.admin.users;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,19 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 import service.UserService;
 
 
-@WebServlet("/admin/delete_user")
-public class DeleteUserServlet extends HttpServlet {
+@WebServlet("/admin/edit_user")
+public class EditUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-    public DeleteUserServlet() {
-        super();
        
+   
+    public EditUserServlet() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserService service = new UserService(request, response);
-		service.deleteUser(); 
+		service.edit_user();
 	}
 
+	
 }

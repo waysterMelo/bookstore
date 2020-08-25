@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +19,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "category", catalog = "bookstoredb")
+@NamedQueries({
+	@NamedQuery(name = "Category.findAll", query = "select c from Category c"),
+	@NamedQuery(name = "Category.count", query = "SELECT COUNT(c.nameCategory) FROM Category c "),
+	@NamedQuery(name = "Category.findByName", query = "select c from Category c where c.nameCategory = :name")
+})
 public class Category implements java.io.Serializable {
 
 	private Integer categoryId;
@@ -29,6 +36,12 @@ public class Category implements java.io.Serializable {
 	public Category(String nameCategory, Set<Book> books) {
 		this.nameCategory = nameCategory;
 		this.books = books;
+	}
+	
+	public Category(Integer categoryid, String nameCategory, Set<Book> books) {
+		this.nameCategory = nameCategory;
+		this.books = books;
+		this.categoryId = categoryid;
 	}
 
 	@Id
@@ -43,7 +56,7 @@ public class Category implements java.io.Serializable {
 		this.categoryId = categoryId;
 	}
 
-	@Column(name = "name_category", length = 150)
+	@Column(name = "name", length = 150)
 	public String getNameCategory() {
 		return this.nameCategory;
 	}
