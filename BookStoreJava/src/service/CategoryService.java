@@ -32,7 +32,7 @@ public class CategoryService {
 	}
 	
 	
-	public void  listAll(String message) throws ServletException, IOException{
+	public void listAll(String message) throws ServletException, IOException{
 		
 		List<Category> cat_list = categoryDao.listAll();
 		request.setAttribute("list_category", cat_list);

@@ -35,7 +35,7 @@
         <a class="nav-link p-5 text-white" href="">register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link p-5 text-white" href="">sign in</a>
+        <a class="nav-link p-5 text-white" href="admin/login">sign in</a>
       </li>
      <li class="nav-item">
         <a class="nav-link p-5 text-white" href="">cart</a>

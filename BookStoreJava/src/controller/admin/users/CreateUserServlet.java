@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.admin.baseServlet.BaseServlet;
 import service.UserService;
 
 
 @WebServlet("/admin/create_user")
-public class CreateUserServlet extends HttpServlet {
+public class CreateUserServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -33,7 +34,7 @@ public class CreateUserServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
-		UserService userS =  new UserService(req, resp);
+		UserService userS =  new UserService(req, resp, entityManager);
 		userS.createUser();		
 		
 	}

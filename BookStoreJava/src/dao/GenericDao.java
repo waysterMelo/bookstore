@@ -1,14 +1,9 @@
-/**
- * 
- */
+
 package dao;
 
 import java.util.List;
 
-/**
- * @author Wayster
- *
- */
+
 public interface GenericDao<E> {
 	
 	public E create(E entity);

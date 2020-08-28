@@ -13,22 +13,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.admin.baseServlet.BaseServlet;
 import dao.CategoryDao;
 import entity.Category;
 
 
 @WebServlet("")
-public class HomeServlet extends HttpServlet {
+public class HomeServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
-	
-	EntityManagerFactory entityManagerFactory;
-	EntityManager entityManager;
+
 	
 	
     public HomeServlet() {
-    	String persistenceUnitName;
-		entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebsite");
-		entityManager = entityManagerFactory.createEntityManager(); 
+    	super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -38,7 +35,7 @@ public class HomeServlet extends HttpServlet {
 		List<Category> cat =  categoryDao.listAll();
 		request.setAttribute("categories", cat);
 		
-		String page = "frontend/index.jsp";
+		String page = "/frontend/index.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);	
 		dispatcher.forward(request, response);	
 

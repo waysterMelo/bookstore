@@ -1,4 +1,4 @@
-package controller.admin.users;
+package controller.admin.login;
 
 import java.io.IOException;
 
@@ -19,15 +19,16 @@ public class ServletAdmin extends HttpServlet {
       
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String page = "/admin/index.jsp";
+		String page = "index.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
 		dispatcher.forward(request, response); 
-		
 	}
 
 

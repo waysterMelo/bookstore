@@ -7,11 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.admin.baseServlet.BaseServlet;
 import service.UserService;
 
 
 @WebServlet("/admin/edit_user")
-public class EditUserServlet extends HttpServlet {
+public class EditUserServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
        
    
@@ -22,7 +23,7 @@ public class EditUserServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserService service = new UserService(request, response);
+		UserService service = new UserService(request, response, entityManager);
 		service.edit_user();
 	}
 

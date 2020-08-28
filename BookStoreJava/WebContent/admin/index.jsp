@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +20,8 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	</header>
 	<div class="col-lg-12 py-5 text-center">
-		<h1 class="text-primary ">Welcome administrator</h1>
+	
+		<h1 class="text-primary ">Welcome <c:out value="${sessionScope.User_email}" /></h1> <span><a href="logout">logout</a></span>
 		<p>wayster h c de melo
 	</div>
 	<div class="container">

@@ -108,9 +108,22 @@ public class UserDaoTest extends BaseDaoTest {
 //    }
 //    
 
-
+    
+    @Test
+    public void login() {
+    	String email = "waystermelo@gmail.com";
+    	String senha = "123";
+    	
+    	boolean user_result = userDao.checkLogin(email, senha);
+    	
+    	assertTrue(user_result);
+    	
+    }
+        
+    
     @AfterClass
     public static void afterClass() throws Exception{
       BaseDaoTest.setupAfterClass(); 
     }
+  
 }
