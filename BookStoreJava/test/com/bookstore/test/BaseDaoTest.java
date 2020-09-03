@@ -27,6 +27,7 @@ public class BaseDaoTest {
 		
 		entityManager.close(); 
 		entityManagerFactory.close();
+		
 	}
 
 }

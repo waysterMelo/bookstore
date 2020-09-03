@@ -1,4 +1,4 @@
-package com.bookstore.test;
+package test.category;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,6 +14,8 @@ import javax.persistence.Persistence;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.bookstore.test.BaseDaoTest;
 
 import dao.CategoryDao;
 import entity.Category;

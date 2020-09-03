@@ -1,10 +1,12 @@
-package com.bookstore.test;
+package test.user;
 
 import dao.UserDao;
 import entity.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.bookstore.test.BaseDaoTest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

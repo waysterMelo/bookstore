@@ -31,9 +31,9 @@ public class AdminLoginFilter implements Filter {
 		
 		HttpServletRequest requestHttp = (HttpServletRequest) request;
 		
-		HttpSession httpSession = requestHttp.getSession(false); 
+		HttpSession session = requestHttp.getSession(false); 
 		
-		boolean loggedIn = httpSession != null && httpSession.getAttribute("User_email") != null;
+		boolean loggedIn = session != null && session.getAttribute("User_email") != null;
 		
 		String loginUrl = requestHttp.getContextPath() + "/admin/login";
 		
@@ -42,8 +42,13 @@ public class AdminLoginFilter implements Filter {
 		boolean loginPage = requestHttp.getRequestURI().endsWith("login.jsp");
 		
 		if (loginPage && loggedIn || loginRequest) {
+			String path = "/admin/";
+			RequestDispatcher  dispatcher = requestHttp.getRequestDispatcher(path);
+			dispatcher.forward(request, response); 
 			
-			chain.doFilter(request, response);
+		}else if(loggedIn || loginRequest) {
+			chain.doFilter(request, response); 
+			
 		}else {
 			String path = "login.jsp";
 			RequestDispatcher  dispatcher = requestHttp.getRequestDispatcher(path);
