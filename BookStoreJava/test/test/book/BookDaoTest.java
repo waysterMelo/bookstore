@@ -1,6 +1,8 @@
 package test.book;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -10,6 +12,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -62,7 +68,7 @@ public class BookDaoTest extends BaseDaoTest {
 //		
 //		assertTrue(createBook.getBookId() > 0 );
 //	}
-	
+//	
 	
 //	@Test
 //	public void testUpdated() throws ParseException, IOException {
@@ -106,12 +112,38 @@ public class BookDaoTest extends BaseDaoTest {
 //		
 //	}
 	
+//	@Test
+// 	public void testGetId() {
+//		Integer id = 36;
+//		Book b = bookdao.get(id);
+//		assertNotNull(b);
+//		 
+//	}
+//	
 	
-	@AfterClass
-	public static void setupEndClass() throws Exception {
-		BookDaoTest.setupAfterClass();	
-	}
+//	@Test
+//	public void testListAll() {
+//		List<Book> lista =  bookdao.listAll();
+//		assertNotNull(lista);
+//	}
+	
+	
+//	@Test
+//	public void testFindByTitle() {
+//		String title = "Java Engineer";
+//		Book book = bookdao.findByTitle(title);
+//		
+//		 System.out.println(book.getTitle());
+//		assertNotNull(book);
+//	}
 
-
-
+	
+//	@Test
+//	public void test_count() {
+//		long count = bookdao.count();
+//		long expected = 1;
+//		assertEquals(expected, count);
+//		System.out.println(count);
+//	}
+	
 }

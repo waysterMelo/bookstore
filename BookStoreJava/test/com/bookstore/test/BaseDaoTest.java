@@ -24,7 +24,6 @@ public class BaseDaoTest {
 	
 	@AfterClass
 	public static void setupAfterClass() throws Exception {
-		
 		entityManager.close(); 
 		entityManagerFactory.close();
 		

@@ -28,8 +28,8 @@ public class BookDao extends JpaDao<Book> implements GenericDao<Book> {
 
 	@Override
 	public List<Book> listAll() {
-		// TODO Auto-generated method stub
-		return null;
+			
+		return super.findWithNamedQuery("Book.list_all");
 	}
 
 	@Override
@@ -39,15 +39,25 @@ public class BookDao extends JpaDao<Book> implements GenericDao<Book> {
 	}
 
 	@Override
-	public Object get(Object id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Book get(Object id) {
+		return super.find(Book.class, id);
+		
+	}
+	
+	
+	public Book findByTitle(String title) {
+		
+	List<Book> list = super.findWithNamedQuery("Book.find_title", "title", title);
+	
+	if (!list.isEmpty()) {
+		return list.get(0);
+	}
+		return null; 
 	}
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	return super.countWithName("Book.find_count");
+	} 
 
 }
