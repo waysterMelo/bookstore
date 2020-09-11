@@ -15,7 +15,7 @@
       </li>
     
       <li class="nav-item">
-        <a class="nav-link text-dark font-weight-bold" href="">New Books</a>
+        <a class="nav-link text-dark font-weight-bold" href="list_books">Books</a>
       </li>
       
         <li class="nav-item">

@@ -47,7 +47,7 @@ public class BookDaoTest extends BaseDaoTest {
 //		
 //		book.setCategory(category); 
 //		
-//		book.setTitle("Java Engineer");
+//		book.setTitle("Oracle");
 //		book.setAuthor("apple");
 //		book.setDescription("ok ");
 //		book.setIsbn("1213");
@@ -68,7 +68,7 @@ public class BookDaoTest extends BaseDaoTest {
 //		
 //		assertTrue(createBook.getBookId() > 0 );
 //	}
-//	
+	
 	
 //	@Test
 //	public void testUpdated() throws ParseException, IOException {
