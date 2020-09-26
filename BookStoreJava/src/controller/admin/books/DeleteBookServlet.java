@@ -10,23 +10,26 @@ import javax.servlet.http.HttpServletResponse;
 import controller.admin.baseServlet.BaseServlet;
 import service.BookService;
 
-
-@WebServlet("/admin/books/list_books")
-public class ListBookServlet extends BaseServlet {
+/**
+ * Servlet implementation class DeleteBookServlet
+ */
+@WebServlet("/admin/books/delete_book")
+public class DeleteBookServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public ListBookServlet() {
+ 
+    public DeleteBookServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	BookService bookService = new BookService(entityManager, request, response);
-	bookService.list_books(null); 	
-	
+		BookService b = new BookService(entityManager, request, response);
+		b.delete();
 	}
 
+	
 
 }

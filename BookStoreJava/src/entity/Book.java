@@ -27,7 +27,10 @@ import javax.persistence.UniqueConstraint;
 @NamedQueries({
 	@NamedQuery(name = "Book.list_all", query = "select b from Book b"),
 	@NamedQuery(name = "Book.find_title", query = "select b from Book b where b.title = :title"),
-	@NamedQuery(name = "Book.find_count", query = "select count(b) from Book b")
+	@NamedQuery(name = "Book.find_count", query = "select count(b) from Book b"),
+	@NamedQuery(name = "Book.findByIdCategory", query = "select b from Book b, "
+			+ "Category c where b.category.categoryId = c.categoryId and c.categoryId = :catId"),
+	@NamedQuery(name = "Book.lastBooks", query = "select b from Book b order by b.bookId DESC")
 })
 @Entity
 @Table(name = "book", catalog = "bookstoredb", uniqueConstraints = @UniqueConstraint(columnNames = "title"))
@@ -42,7 +45,7 @@ public class Book implements java.io.Serializable {
 	private byte[] image;
 	private String base64image;
 	private float price;
-	private Date publishDate;
+	private String publishDate;
 	private Date lastUpdateTime;
 	private Set<Review> reviews = new HashSet<Review>(0);
 	private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
@@ -52,7 +55,7 @@ public class Book implements java.io.Serializable {
 	}
 
 	public Book(Category category, String title, String author, String description, String isbn, byte[] image,
-			float price, Date publishDate, Date lastUpdateTime) {
+			float price, String publishDate, Date lastUpdateTime) {
 		this.category = category;
 		this.title = title;
 		this.author = author;
@@ -65,7 +68,7 @@ public class Book implements java.io.Serializable {
 	}
 
 	public Book(Category category, String title, String author, String description, String isbn, byte[] image,
-			float price, Date publishDate, Date lastUpdateTime, Set<Review> reviews, Set<OrderDetail> orderDetails) {
+			float price, String publishDate, Date lastUpdateTime, Set<Review> reviews, Set<OrderDetail> orderDetails) {
 		this.category = category;
 		this.title = title;
 		this.author = author;
@@ -155,13 +158,12 @@ public class Book implements java.io.Serializable {
 		this.price = price;
 	}
 
-	@Temporal(TemporalType.DATE)
 	@Column(name = "publish_date", nullable = false, length = 10)
-	public Date getPublishDate() {
+	public String getPublishDate() {
 		return this.publishDate;
 	}
 
-	public void setPublishDate(Date publishDate) {
+	public void setPublishDate(String publishDate) {
 		this.publishDate = publishDate;
 	}
 

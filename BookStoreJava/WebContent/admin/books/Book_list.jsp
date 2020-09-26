@@ -56,7 +56,7 @@
 					<td>${book.author}</td>
 				
 					<td>
-					<a href="edit_user?id=${book.bookId}" class="text-light btn btn-dark btn-md">Edit</a>
+					<a href="edit_book?id=${book.bookId}" class="text-light btn btn-dark btn-md">Edit</a>
 					<span class="border-left mx-2"></span>
 					<a href="javascript:confirmDelete(${book.bookId})" class="text-light btn btn-danger btn-md">Remove</a>
 					</td>
@@ -74,9 +74,9 @@
 <jsp:include page="/admin/footer.jsp"></jsp:include>
 
 <script>
-	function confirmDelete(userId){
-			if (confirm("Are you sure you want to delete this user " + userId + " ? ")) {
-				window.location = 'delete_user?user_id=' + userId;
+	function confirmDelete(bookId){
+			if (confirm("Are you sure you want to delete this user " + bookId + " ? ")) {
+				window.location = 'delete_book?id=' + bookId;
 			}
 		}
 </script>

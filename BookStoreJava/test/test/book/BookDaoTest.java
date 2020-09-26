@@ -146,4 +146,12 @@ public class BookDaoTest extends BaseDaoTest {
 //		System.out.println(count);
 //	}
 	
+//	@Test
+//	public void ListByCategory() {
+//		int category = 14;
+//		List<Book> list_books = bookdao.listByCategory(category);
+//		
+//		assertTrue(list_books.size() > 0);
+//	}
+	
 }

@@ -31,12 +31,12 @@
 		</div>
 		
 			<c:if test="${book != null }">
-				<form action="update_book" method="post">
-		<input type="hidden" name="bookid" value="${book.bookid }">
+				<form action="update" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="bookid" value="${book.bookId }">
 				 
 		</c:if>
 		<c:if test="${book == null }">
-			<form action="create_book" method="post">	
+			<form action="create_book" method="post" enctype="multipart/form-data">	
 		</c:if>
 		
 		
@@ -75,7 +75,10 @@
 			
 			<tr>
 				<td>Price:</td>
-				<td><input type="text" name="price" class="form-control" value="${book.price}"></td>
+				<td>
+				<input type="text" name="price" class="form-control" value="${book.price}">
+				
+				</td>
 				<td>Date Publish:</td>
 				<td><input type="date" name="dateP" class="form-control" value="${book.publishDate}"></td>
 			
@@ -83,7 +86,8 @@
 			
 			<tr>
 				<td>Image:</td>
-				<td><input type="file" name="image" class="form-control" value="" size="20"></td>			
+				<td><input type="file" name="image" id="image" class="form-control" value="" size="20"></td>	
+				
 			</tr>
 			
 			
@@ -97,6 +101,9 @@
 		</form>
 	
 	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" 
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+	</script>
 
 </body>
 </html>

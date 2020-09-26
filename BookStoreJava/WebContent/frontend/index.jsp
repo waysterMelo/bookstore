@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +16,7 @@
 	rel="stylesheet">
 
 </head>
-<style>
-<%@
-include
- 
-file ="../css/indexStyle.css" %>
+<style><%@ include file ="../css/indexStyle.css" %>
 </style>
 
 <body>
@@ -49,26 +45,29 @@ file ="../css/indexStyle.css" %>
 					</div>
 					<div class="row pt-5 mt-5">
 						<div class="col-md-12">
-								<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-							<button class="navbar-toggler" type="button"
-								data-toggle="collapse" data-target="#quickMenu"
-								aria-controls="navbarSupportedContent" aria-expanded="false"
-								aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+							<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+								<button class="navbar-toggler" type="button"
+									data-toggle="collapse" data-target="#quickMenu"
+									aria-controls="navbarSupportedContent" aria-expanded="false"
+									aria-label="Toggle navigation">
+									<span class="navbar-toggler-icon"></span>
+								</button>
 
-							<div class="collapse navbar-collapse" id="quickMenu">
-								<ul class="navbar-nav mx-auto">
-								<c:forEach var="category" items="${categories}">
-								
-									<li class="nav-item">
-									<a class="nav-link text-light font-weight-lighter" href="">${category.nameCategory}</a>
-									</li>
+								<div class="collapse navbar-collapse" id="quickMenu">
+									<ul class="navbar-nav mx-auto">
 									
-									</c:forEach>
-								</ul>
-							</div>
-						</nav>
+<c:forEach var="categories" items="${categories}" varStatus="status">
+			<li class="nav-item">
+       	 <a class="nav-link text-white font-weight-bold" href="view_category?id=${categories.categoryId}">
+        <font size="+1"><b><c:out value="${categories.nameCategory}"></c:out></b></font>
+        </a>
+       </li>
+          </c:forEach>
+
+								
+									</ul>
+								</div>
+							</nav>
 						</div>
 					</div>
 				</div>
@@ -76,6 +75,8 @@ file ="../css/indexStyle.css" %>
 
 		</div>
 	</div>
+
+
 
 
 	<jsp:include page="footer.jsp"></jsp:include>

@@ -53,5 +53,9 @@ public class CategoryDao extends JpaDao<Category> implements GenericDao<Category
 		}
 		return null;
 	}
+	
+	public List<Category> nameById(int id) {
+		return super.findWithNamedQuery("Category.find_name_by_id", "cat_id", id); 
+	}
 
 }

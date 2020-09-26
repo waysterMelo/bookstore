@@ -17,7 +17,7 @@
         <a class="nav-link" href="admin/">admin</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-success font-weight-bold" href="">New Books</a>
+        <a class="nav-link text-success font-weight-bold" href="new_books">New Books</a>
       </li>
     </ul>
  
