@@ -53,7 +53,7 @@
 					<div class="row my-2"><span>By: </span> ${b.author} </div>
 					<div class="row justify-content-center">
 					<button class="btn btn-info p-2">R$ ${b.price}</button>
-						<button class="btn btn-dark p-2 mx-3">Details</button>
+						<a href="view_book?id=${b.bookId}" class="btn btn-dark p-2 mx-3">Details</a>
 						<button class="btn btn-success p-2">Buy</button>
 						
 					</div>
