@@ -30,13 +30,16 @@ import javax.persistence.UniqueConstraint;
 	@NamedQuery(name = "Book.find_count", query = "select count(b) from Book b"),
 	@NamedQuery(name = "Book.findByIdCategory", query = "select b from Book b, "
 			+ "Category c where b.category.categoryId = c.categoryId and c.categoryId = :catId"),
-	@NamedQuery(name = "Book.lastBooks", query = "select b from Book b order by b.bookId DESC")
-})
+	@NamedQuery(name = "Book.lastBooks", query = "select b from Book b order by b.bookId DESC"),
+	@NamedQuery(name = "Book.search", query = "select b from Book b where b.title LIKE '%' || :keyword || '%' "
+			+ "or b.author LIKE '%' || :keyword '%' "
+			+ "or b.description LIKE '%' || :keyword '%'")
+}) 
 @Entity
 @Table(name = "book", catalog = "bookstoredb", uniqueConstraints = @UniqueConstraint(columnNames = "title"))
 public class Book implements java.io.Serializable {
 
-	private Integer bookId;
+	private Integer bookId; 
 	private Category category;
 	private String title;
 	private String author;

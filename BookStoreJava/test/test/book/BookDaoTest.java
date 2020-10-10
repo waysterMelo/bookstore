@@ -154,4 +154,23 @@ public class BookDaoTest extends BaseDaoTest {
 //		assertTrue(list_books.size() > 0);
 //	}
 	
+//	@Test
+//	public void search() {
+//		String name = "Linkedin traine";
+//		List<Book> b = bookdao.search(name);
+//		
+//		assertEquals(1, b.size());
+//	}
+	
+	@Test
+	public void Search() {
+		String key = "Java";
+		List<Book> rs = bookdao.search(key);
+		
+		for (Book e : rs) {
+			System.out.println(e.getTitle());
+			
+		}
+	}
+	
 }
