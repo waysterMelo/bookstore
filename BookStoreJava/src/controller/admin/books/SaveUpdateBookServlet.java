@@ -12,7 +12,7 @@ import controller.admin.baseServlet.BaseServlet;
 import service.BookService;
 
 
-@WebServlet("/admin/books/update")
+@WebServlet("/admin/update")
 @MultipartConfig(
 		fileSizeThreshold = 1024 * 10,
 		maxFileSize = 1024 * 300,

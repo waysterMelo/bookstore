@@ -138,13 +138,13 @@ public class BookDaoTest extends BaseDaoTest {
 //	}
 
 	
-//	@Test
-//	public void test_count() {
-//		long count = bookdao.count();
-//		long expected = 1;
-//		assertEquals(expected, count);
-//		System.out.println(count);
-//	}
+	@Test
+	public void test_count() {
+		long count = bookdao.count();
+		long expected = 1;
+		assertEquals(expected, count);
+		System.out.println(count);
+	}
 	
 //	@Test
 //	public void ListByCategory() {
@@ -154,23 +154,17 @@ public class BookDaoTest extends BaseDaoTest {
 //		assertTrue(list_books.size() > 0);
 //	}
 	
-//	@Test
-//	public void search() {
-//		String name = "Linkedin traine";
-//		List<Book> b = bookdao.search(name);
-//		
-//		assertEquals(1, b.size());
-//	}
-	
 	@Test
-	public void Search() {
-		String key = "Java";
-		List<Book> rs = bookdao.search(key);
+	public void search() {
+		String name = "Swift";
+		List<Book> b = bookdao.search(name);
 		
-		for (Book e : rs) {
-			System.out.println(e.getTitle());
-			
-		}
+		assertEquals(1, b.size());
+	}
+	
+	@AfterClass
+	public static void afterClass() throws Exception{
+		BaseDaoTest.setupAfterClass();	
 	}
 	
 }

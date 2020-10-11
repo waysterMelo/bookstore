@@ -46,7 +46,7 @@ public class BookService {
 		List<Book> list = bookDao.listAll();
 		request.setAttribute("list_books", list);
 		request.setAttribute("message", msg);
-		String path = "/admin/books/Book_list.jsp";
+		String path = "/admin/Book_list.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}
@@ -55,7 +55,7 @@ public class BookService {
 		List<Category> listCategory = categoryDao.listAll();
 		request.setAttribute("category", listCategory);
 		
-		String path_category = "/admin/books/create_books.jsp";
+		String path_category = "/admin/create_books.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path_category);
 		dispatcher.forward(request, response); 
 		
@@ -86,7 +86,7 @@ public class BookService {
 		
 		request.setAttribute("book", book);
 		request.setAttribute("category", lista);
-		String path = "/admin/books/create_books.jsp";
+		String path = "/admin/create_books.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}

@@ -16,7 +16,7 @@ import entity.Book;
 import service.BookService;
 
 
-@WebServlet("/admin/books/create_book")
+@WebServlet("/admin/create_book")
 @MultipartConfig(
 		fileSizeThreshold = 1024 * 10,
 		maxFileSize = 1024 * 300,

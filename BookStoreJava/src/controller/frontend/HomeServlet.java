@@ -35,7 +35,7 @@ public class HomeServlet extends BaseServlet {
 		List<Category> cat =  categoryDao.listAll();
 		request.setAttribute("categories", cat);
 		
-		String page = "frontend/index.jsp";
+		String page = "/frontend/index.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);	
 		dispatcher.forward(request, response);	
 

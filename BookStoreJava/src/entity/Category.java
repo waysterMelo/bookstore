@@ -61,7 +61,7 @@ public class Category implements java.io.Serializable {
 		this.categoryId = categoryId;
 	}
 
-	@Column(name = "name", length = 150)
+	@Column(name = "name_category", length = 150)
 	public String getNameCategory() {
 		return this.nameCategory;
 	}

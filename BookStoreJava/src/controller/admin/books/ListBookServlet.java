@@ -11,7 +11,7 @@ import controller.admin.baseServlet.BaseServlet;
 import service.BookService;
 
 
-@WebServlet("/admin/books/list_books")
+@WebServlet("/admin/list_books")
 public class ListBookServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
        

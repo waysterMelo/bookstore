@@ -11,7 +11,7 @@ import controller.admin.baseServlet.BaseServlet;
 import service.BookService;
 
 
-@WebServlet("/admin/books/edit_book")
+@WebServlet("/admin/edit_book")
 public class UpdateBookServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
    
@@ -24,7 +24,5 @@ public class UpdateBookServlet extends BaseServlet {
 		
 	BookService book_service = new BookService(entityManager, request, response);
 	book_service.edit_book(); 
-		
-	
 	}
 }
