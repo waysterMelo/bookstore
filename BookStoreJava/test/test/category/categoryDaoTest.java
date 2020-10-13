@@ -1,24 +1,12 @@
 package test.category;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 import com.bookstore.test.BaseDaoTest;
-
 import dao.CategoryDao;
-import entity.Category;
 
 public class categoryDaoTest extends BaseDaoTest {
 	
@@ -104,14 +92,9 @@ public class categoryDaoTest extends BaseDaoTest {
 //    
 //	
 	
-	
-	
-	
 	@AfterClass
 	public static void setupAfterClass() throws Exception {
 		BaseDaoTest.setupAfterClass(); 
 	}
-
-
 
 }

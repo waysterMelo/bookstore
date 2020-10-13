@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
+
 public class BaseDaoTest {
 	
 	protected static EntityManagerFactory entityManagerFactory;

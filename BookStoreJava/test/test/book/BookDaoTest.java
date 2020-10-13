@@ -1,42 +1,27 @@
 package test.book;
 
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-
-import javax.persistence.EntityNotFoundException;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.*;
 import org.junit.Test;
-
 import com.bookstore.test.BaseDaoTest;
-
 import dao.BookDao;
 import entity.Book;
-import entity.Category;
 
 public class BookDaoTest extends BaseDaoTest {
 	
-	private static BookDao bookdao;
+	protected BookDao bookdao;
+
 	
 	@BeforeClass
-	public static void setupInitClass() throws Exception {
-		BaseDaoTest.setupInitClass(); 
+	public void BeforeClass() throws Exception {
+		BaseDaoTest.setupInitClass();
 		bookdao = new BookDao(entityManager);
 	}
-	
+
+
 	
 //	@Test
 //	public void create() throws ParseException, IOException {
@@ -138,13 +123,13 @@ public class BookDaoTest extends BaseDaoTest {
 //	}
 
 	
-	@Test
-	public void test_count() {
-		long count = bookdao.count();
-		long expected = 1;
-		assertEquals(expected, count);
-		System.out.println(count);
-	}
+//	@Test
+//	public void test_count() {
+//		long count = bookdao.count();
+//		long expected = 1;
+//		assertEquals(expected, count);
+//		System.out.println(count);
+//	}
 	
 //	@Test
 //	public void ListByCategory() {
@@ -162,9 +147,8 @@ public class BookDaoTest extends BaseDaoTest {
 		assertEquals(1, b.size());
 	}
 	
-	@AfterClass
-	public static void afterClass() throws Exception{
-		BaseDaoTest.setupAfterClass();	
-	}
+	
+	
+
 	
 }

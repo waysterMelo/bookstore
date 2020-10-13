@@ -1,22 +1,14 @@
 package test.user;
 
-import dao.UserDao;
-import entity.*;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.bookstore.test.BaseDaoTest;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceException;
-
-import static org.junit.Assert.*;
-
-import java.util.Iterator;
-import java.util.List;
+import dao.UserDao;
 
 public class UserDaoTest extends BaseDaoTest {
 
@@ -118,7 +110,8 @@ public class UserDaoTest extends BaseDaoTest {
     	
     	boolean user_result = userDao.checkLogin(email, senha);
     	
-    	assertTrue(user_result);
+    	assertTrue(user_result); 
+    	
     	
     }
         

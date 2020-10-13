@@ -33,9 +33,9 @@
 						your desire book</h1>
 					<div class="row justify-content-center">
 						<div class="d-flex">
-							<form class="form-inline border-0 pt-4"
+							<form action="search" method="get" class="form-inline border-0 pt-4"
 								style="background: transparent;">
-								<input type="search" id="input" class="form-control mr-sm-2"
+								<input type="text" id="input" name="keyword" class="form-control mr-sm-2"
 									placeholder="Type your book" />
 								<button type="submit" id="inputButton" class="btn btn-success">
 									search <i class="fa fa-search-plus"></i>

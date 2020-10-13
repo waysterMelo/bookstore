@@ -161,9 +161,8 @@ public class BookService {
 	request.setAttribute("list_books", list_book);
 	request.setAttribute("name_category", name);
 	
-	System.out.println(list_book);
 	
-	String path = "/frontend/books_by_category.jsp";
+	String path = "frontend/books_by_category.jsp";
 	RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 	dispatcher.forward(request, response); 
 
@@ -176,7 +175,7 @@ public class BookService {
 	
 
 		
-		String path = "/frontend/new_books.jsp";
+		String path = "frontend/new_books.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}
@@ -191,6 +190,23 @@ public class BookService {
 		
 		
 		String path = "frontend/book_detail.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response); 
+	}
+
+	public void search() throws ServletException, IOException {
+	String keyword = request.getParameter("keyword");
+		List<Book> lista = null;
+		
+		if (keyword.equals("")) {
+			lista = bookDao.listAll();
+		}else {
+			lista = bookDao.search(keyword);
+		}
+		request.setAttribute("search", lista);
+		
+		
+		String path = "frontend/search_result.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}
