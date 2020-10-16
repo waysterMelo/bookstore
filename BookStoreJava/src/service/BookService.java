@@ -206,7 +206,7 @@ public class BookService {
 		request.setAttribute("search", lista);
 		
 		
-		String path = "frontend/search_result.jsp";
+		String path = "frontend/Search_result.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}

@@ -25,7 +25,7 @@ public class HomeServlet extends BaseServlet {
 	
 	
     public HomeServlet() {
-    	super();
+    
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
