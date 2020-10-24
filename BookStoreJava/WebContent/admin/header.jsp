@@ -11,7 +11,7 @@
         <a class="nav-link text-dark font-weight-bold" href="list_users">Users<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-         <a class="nav-link text-dark font-weight-bold" href="view_category">Categories</a>
+         <a class="nav-link text-dark font-weight-bold" href="category_list">Categories</a>
       </li>
     
       <li class="nav-item">

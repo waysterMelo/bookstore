@@ -16,17 +16,13 @@ import entity.Category;
 
 public class CategoryService {
 	
-	 EntityManagerFactory entityManagerFactory;
-	 EntityManager entityManager;
 	 HttpServletRequest request;
 	 HttpServletResponse response;
 	 CategoryDao categoryDao;
 	 
 	 
 	public CategoryService(HttpServletRequest request, HttpServletResponse response) {
-		entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebsite"); 
-		entityManager = entityManagerFactory.createEntityManager();
-		categoryDao = new CategoryDao(entityManager);
+		categoryDao = new CategoryDao();
 		this.request = request;
 		this.response = response;
 	}

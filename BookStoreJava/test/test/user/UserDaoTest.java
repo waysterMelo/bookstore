@@ -6,19 +6,21 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.bookstore.test.BaseDaoTest;
-
 import dao.UserDao;
 
-public class UserDaoTest extends BaseDaoTest {
+public class UserDaoTest{
 
 
     private static UserDao userDao;
 
     @BeforeClass
     public static void setupClass() throws Exception{
-    	BaseDaoTest.setupInitClass(); 
-         userDao = new UserDao(entityManager);
+         userDao = new UserDao();
+    }
+    
+    @AfterClass
+    public void close() {
+    	userDao.close(); 
     }
 
 
@@ -111,14 +113,8 @@ public class UserDaoTest extends BaseDaoTest {
     	boolean user_result = userDao.checkLogin(email, senha);
     	
     	assertTrue(user_result); 
-    	
-    	
+    
     }
         
-    
-    @AfterClass
-    public static void afterClass() throws Exception{
-      BaseDaoTest.setupAfterClass(); 
-    }
   
 }

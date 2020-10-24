@@ -2,23 +2,30 @@ package test.book;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
-import org.junit.*;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import com.bookstore.test.BaseDaoTest;
+
 import dao.BookDao;
 import entity.Book;
 
-public class BookDaoTest extends BaseDaoTest {
+public class BookDaoTest{
 	
-	protected BookDao bookdao;
+	private static BookDao bookdao;
 
 	
 	@BeforeClass
 	public void BeforeClass() throws Exception {
-		BaseDaoTest.setupInitClass();
-		bookdao = new BookDao(entityManager);
+		bookdao = new BookDao();
+	}
+	
+	@AfterClass
+	public void afterClass() throws Exception{
+		bookdao.close(); 
 	}
 
 
@@ -109,7 +116,8 @@ public class BookDaoTest extends BaseDaoTest {
 //	@Test
 //	public void testListAll() {
 //		List<Book> lista =  bookdao.listAll();
-//		assertNotNull(lista);
+//		assertNotNull(lista); 
+//		
 //	}
 	
 	

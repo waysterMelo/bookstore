@@ -8,9 +8,8 @@ import entity.Category;
 
 public class CategoryDao extends JpaDao<Category> implements GenericDao<Category> {
 	
-	public CategoryDao(EntityManager entityManager) {
+	public CategoryDao() {
 	
-		super(entityManager);
 	}
 
 	@Override

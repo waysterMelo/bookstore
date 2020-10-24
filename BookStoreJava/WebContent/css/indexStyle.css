@@ -1,9 +1,13 @@
+html{
+	height: auto;
+}
+
 
 #headerback{
 background-image: url("images/books.jpg");
 background-repeat: no-repeat;
 background-size: cover;
-height: 470px;
+height: 700px
 }
 
 #navbarSupportedContent ul li a{

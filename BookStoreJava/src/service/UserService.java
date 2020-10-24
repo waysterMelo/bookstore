@@ -16,19 +16,14 @@ import entity.Users;
 
 public class UserService {
 	
-	 EntityManagerFactory entityManagerFactory;
-	 EntityManager entityManager;
 	 UserDao userdao;
 	 HttpServletResponse response;
 	 HttpServletRequest request;
 	
-	public UserService(HttpServletRequest request, HttpServletResponse response, EntityManager entityManager) {
-		 entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebsite");
-		 entityManager = entityManagerFactory.createEntityManager();
-		 userdao = new UserDao(entityManager);
+ public UserService(HttpServletRequest request, HttpServletResponse response) {
+		 userdao = new UserDao();
 		 this.request = request;
 		 this.response = response;
-		 this.entityManager = entityManager;
 	}
 	
 	

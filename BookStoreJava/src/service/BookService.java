@@ -23,22 +23,19 @@ import entity.Category;
 
 public class BookService {
 	
-	private EntityManager entityManager;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private BookDao bookDao;
 	private CategoryDao categoryDao;
 
 	
-	public BookService(EntityManager entityManager,
-			HttpServletRequest request, HttpServletResponse response) {
+	public BookService(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated constructor stub
 		super();
-		this.entityManager = entityManager;
 		this.request = request;
 		this.response = response;
-		bookDao = new BookDao(entityManager);
-		categoryDao = new CategoryDao(entityManager);
+		bookDao = new BookDao();
+		categoryDao = new CategoryDao();
 		
 	}
 	
@@ -79,7 +76,7 @@ public class BookService {
 
 	public void edit_book() throws ServletException, IOException {
 		Integer id_book = Integer.parseInt(request.getParameter("id"));
-		BookDao dao = new BookDao(entityManager);
+		BookDao dao = new BookDao();
 		Book book = dao.get(id_book);
 		
 		List<Category> lista = categoryDao.listAll();

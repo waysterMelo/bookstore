@@ -10,9 +10,8 @@ import entity.Users;
 
 public class UserDao extends JpaDao<Users> implements GenericDao<Users> {
 	
-		public UserDao(EntityManager entityManager) {
-			// TODO Auto-generated constructor stub
-			super(entityManager);
+		public UserDao( ) {
+			
 		}
 		
 		public Users create(Users user) {

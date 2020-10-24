@@ -4,22 +4,23 @@ package test.category;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-
-import com.bookstore.test.BaseDaoTest;
 import dao.CategoryDao;
 
-public class categoryDaoTest extends BaseDaoTest {
+public class categoryDaoTest {
 	
 	
 	private static CategoryDao categorydao;
 
 	@BeforeClass
 	public static void init() throws Exception{
-		BaseDaoTest.setupInitClass(); 
-		 categorydao = new CategoryDao(entityManager);
+		 categorydao = new CategoryDao();
 	}
 	
-
+	
+	@AfterClass
+	public void afterClass() {
+		categorydao.close(); 
+	}
 	
 //	@Test
 //	public void create() {
@@ -92,9 +93,5 @@ public class categoryDaoTest extends BaseDaoTest {
 //    
 //	
 	
-	@AfterClass
-	public static void setupAfterClass() throws Exception {
-		BaseDaoTest.setupAfterClass(); 
-	}
 
 }

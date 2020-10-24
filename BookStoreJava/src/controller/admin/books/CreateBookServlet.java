@@ -2,7 +2,6 @@ package controller.admin.books;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -10,9 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.admin.baseServlet.BaseServlet;
-import dao.BookDao;
-import entity.Book;
 import service.BookService;
 
 
@@ -22,7 +18,7 @@ import service.BookService;
 		maxFileSize = 1024 * 300,
 		maxRequestSize = 1024 * 1024
 		)
-public class CreateBookServlet extends BaseServlet {
+public class CreateBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
@@ -31,16 +27,15 @@ public class CreateBookServlet extends BaseServlet {
         
     }
 
-	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		BookService bookService = new BookService(entityManager, request, response);
+		BookService bookService = new BookService(request, response);
 		bookService.showNewForm();
 	}
 
-	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BookService book_services = new BookService(entityManager, request, response);
+		BookService book_services = new BookService( request, response);
 		book_services.create();
 
 }

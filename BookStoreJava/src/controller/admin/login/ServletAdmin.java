@@ -15,8 +15,7 @@ public class ServletAdmin extends HttpServlet {
        
     
     public ServletAdmin() {
-        super();
-      
+
     }
 
 	@Override
@@ -24,6 +23,7 @@ public class ServletAdmin extends HttpServlet {
 		doGet(req, resp);
 	}
     
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String page = "index.jsp";
 		

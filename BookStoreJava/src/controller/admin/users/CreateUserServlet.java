@@ -9,12 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.admin.baseServlet.BaseServlet;
 import service.UserService;
 
 
 @WebServlet("/admin/create_user")
-public class CreateUserServlet extends BaseServlet {
+public class CreateUserServlet  extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -23,21 +22,21 @@ public class CreateUserServlet extends BaseServlet {
 		super();
 	}
    
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path = "user_form.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
-	
-	
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
-		UserService userS =  new UserService(req, resp, entityManager);
+		UserService userS =  new UserService(req, resp);
 		userS.createUser();		
 		
 	}
 
+	
 
 }

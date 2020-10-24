@@ -19,6 +19,7 @@ public class EditCategoryServlet extends HttpServlet {
        
     }
 
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CategoryService categoryService = new CategoryService(request, response);
 		categoryService.editcategory();
