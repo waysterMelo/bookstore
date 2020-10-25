@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
 import dao.CategoryDao;
 import entity.Category;
@@ -30,10 +31,18 @@ public class CommonFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 	
-		List<Category> listCategory = categoryDao.listAll();
-		request.setAttribute("category", listCategory);
+		HttpServletRequest Http_request = (HttpServletRequest) request;
+    	String path = Http_request.getRequestURI().substring(Http_request.getContextPath().length());
+    	
+    	if (!path.startsWith("/admin/")) {
+    		List<Category> list_category = categoryDao.listAll();
+        	request.setAttribute("categories", list_category);
+		}
+    	
+    	
+    	
 		chain.doFilter(request, response); 
-		
+    	
 	}
 
 	

@@ -180,9 +180,7 @@ public class BookService {
 	public void view_details() throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		Book book = bookDao.get(id);
-		List<Category> list_category = categoryDao.listAll();
 		
-		request.setAttribute("listCategory", list_category);
 		request.setAttribute("bookId", book);
 		
 		

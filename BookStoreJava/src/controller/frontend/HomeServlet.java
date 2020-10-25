@@ -27,15 +27,11 @@ public class HomeServlet extends HttpServlet{
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		
-		CategoryDao categoryDao = new CategoryDao();
-		List<Category> cat =  categoryDao.listAll();
-		request.setAttribute("categories", cat);
-		
-		String page = "frontend/index.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(page);	
-		dispatcher.forward(request, response);	
-
-	}
+    	
+    	String path = "/frontend/index.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
+    
+    }
 
 }
