@@ -28,6 +28,8 @@ import javax.persistence.UniqueConstraint;
 	@NamedQuery(name = "Book.list_all", query = "select b from Book b"),
 	@NamedQuery(name = "Book.find_title", query = "select b from Book b where b.title = :title"),
 	@NamedQuery(name = "Book.find_count", query = "select count(b) from Book b"),
+	@NamedQuery(name = "Book.find_countCategpry", query = "select count(b) from Book b "
+			+ "where b.category.categoryId = :catId"),
 	@NamedQuery(name = "Book.findByIdCategory", query = "select b from Book b, "
 			+ "Category c where b.category.categoryId = c.categoryId and c.categoryId = :catId"),
 	@NamedQuery(name = "Book.lastBooks", query = "select b from Book b order by b.bookId DESC"),

@@ -40,7 +40,8 @@
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
+                                <a href="#" class="btn btn-info">Register here</a> <br>
+                                <a class="btn btn-success" href="${pageContext.request.contextPath}">return to home</a>
                             </div>
                         </form>
                     </div>

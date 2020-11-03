@@ -13,7 +13,7 @@ import service.BookService;
 /**
  * Servlet implementation class DeleteBookServlet
  */
-@WebServlet("/admin/books/delete_book")
+@WebServlet("/admin/delete_book")
 public class DeleteBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
