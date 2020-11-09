@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"> <span class="text-success font-weight-bold">Ebook</span>-ecommerce</a>
+  <a class="navbar-brand" href="${pageContext.request.contextPath}"> <span class="text-success font-weight-bold">Ebook</span>-ecommerce</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -32,7 +32,7 @@
   <div class="collapse navbar-collapse" id="menu2">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link p-5 text-white" href="">register</a>
+        <a class="nav-link p-5 text-white" href="register_here">register</a>
       </li>
       <li class="nav-item">
         <a class="nav-link p-5 text-white" href="admin/login">sign in</a>
