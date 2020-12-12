@@ -23,7 +23,9 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Customer.listAll", query = "select c from Customer c") 
+	@NamedQuery(name = "Customer.listAll", query = "select c from Customer c"),
+	@NamedQuery(name = "Customer.findByEmail", query = "select c from Customer c where c.email = :email"),
+	@NamedQuery(name = "Customer.checkLogin", query = "select c from Customer c where c.email = :email and c.password = :password")
 })
 @Table(name = "customer", catalog = "bookstoredb",
 uniqueConstraints = @UniqueConstraint(columnNames = "email"))

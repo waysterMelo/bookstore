@@ -1,13 +1,18 @@
 package service;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
+import org.apache.catalina.connector.Request;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import dao.CustomerDao;
 import entity.Customer;
 
@@ -53,13 +58,11 @@ public class CustomerService {
 		dispatcher.forward(request, response); 
 	}
 	
-	
-	public void showForm() throws ServletException, IOException {
+	public void showFormRegister() throws ServletException, IOException {
 		String path = "frontend/register_here.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}
-
 
 	public void listAll() throws ServletException, IOException {
 		List<Customer> listall = customerDao.listAll();
@@ -70,7 +73,6 @@ public class CustomerService {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}
-
 
 	public void remove_service() throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("customerId"));
@@ -89,4 +91,87 @@ public class CustomerService {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}
+
+	public void show_form_login_client() throws ServletException, IOException {
+		
+		String path = "frontend/login_customer.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response); 
+	}
+
+	public void doLogin() throws ServletException, IOException {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		Customer customer = customerDao.checkLogin(email, password);
+		
+		if (customer == null) {
+			String message = "Login Failed ";
+			request.setAttribute("message", message);
+			show_form_login_client(); 
+			
+		} else {
+
+			request.getSession().setAttribute("logged_customer", customer);
+		
+			showPageMyProfile();
+			
+			
+		}
+		
+	}
+
+
+	public void logout() throws ServletException, IOException {
+		
+	HttpSession session = request.getSession(false); 
+	session.removeAttribute("logged_customer");
+	String path = "frontend/index.jsp";
+	RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+	dispatcher.forward(request, response); 	
+	
+	}
+
+
+	public void showPageMyProfile() throws ServletException, IOException {
+		String path = "frontend/customer_profile.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response); 		
+	}
+
+
+	public void show_form_edit_profiel() throws ServletException, IOException {
+		HttpSession session = request.getSession(true);
+		session.getAttribute("logged_customer");
+		String path = "frontend/edit_my_profile.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		 dispatcher.forward(request, response); 
+	}
+
+
+	public void doUpdate() throws ServletException, IOException {
+		Customer customer = (Customer) request.getSession().getAttribute("logged_customer");
+		
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String address = request.getParameter("address");
+		String city = request.getParameter("city");
+		String password = request.getParameter("password");
+		
+		customer.setFullname(name);
+		customer.setEmail(email);
+		customer.setAddress(address);
+		customer.setCity(city);
+		customer.setPassword(password); 
+		
+		customerDao.update(customer);
+		
+		String msg = "Successfully Edited :)";
+		request.setAttribute("msg", msg);
+		
+		show_form_edit_profiel(); 
+	}
+
+
+	
 }

@@ -6,23 +6,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import service.CustomerService;
 
-@WebServlet("/register_here")
-public class CustomerHereServlet extends HttpServlet {
+@WebServlet("/my_profile")
+public class MyProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
-    public CustomerHereServlet() {
+
+
+    public MyProfileServlet() {
         super();
-        
+       
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CustomerService customerService = new CustomerService(request, response);
-		customerService.showFormRegister();
-		
+		customerService.showPageMyProfile();
 	}
 
 }
