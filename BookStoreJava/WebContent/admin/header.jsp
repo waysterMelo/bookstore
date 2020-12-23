@@ -23,7 +23,7 @@
       </li>
       
         <li class="nav-item">
-        <a class="nav-link text-dark font-weight-bold" href="">Orders</a>
+        <a class="nav-link text-dark font-weight-bold" href="list_reviews">Reviews</a>
       </li>
     </ul>
     </div>
