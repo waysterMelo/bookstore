@@ -1,6 +1,7 @@
 package controller.frontend;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.Filter;
@@ -20,6 +21,9 @@ import entity.Category;
 
 @WebFilter("/*")
 public class CustomerLoginFIlter implements Filter {
+	
+	private static final String[] LoginRequiredURLS = {
+			"/view_profile", "/edit_profile", "/update_profile", "/write_review"};
 
   
 	private final CategoryDao categoryDao;
@@ -47,7 +51,9 @@ public class CustomerLoginFIlter implements Filter {
 		
 		boolean loggedIn = session != null && session.getAttribute("logged_customer") != null;
 		
-		if (!loggedIn && path.endsWith("/view_profile")) {
+		String requestURLS = http_request.getRequestURI().toString();
+		
+		if (!loggedIn && isLoginRequired(requestURLS)) {
 			String indexPage = "frontend/login_customer.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(indexPage);
 			dispatcher.forward(request, response); 
@@ -56,6 +62,15 @@ public class CustomerLoginFIlter implements Filter {
 			
 		}
 	
+	}
+	
+	private boolean isLoginRequired(String RequestUrls) {
+		for (String loginrequiredurls : LoginRequiredURLS) {
+			if (RequestUrls.contains(loginrequiredurls)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	

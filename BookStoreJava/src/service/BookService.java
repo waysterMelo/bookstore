@@ -94,13 +94,7 @@ public class BookService {
 	
 		Book book = bookDao.get(bookId);
 		Book bookByTitle = bookDao.findByTitle(title);
-		
-		
-		if (!book.equals(bookByTitle)) {
-			String msg = "Could not update the book because existing already another with the same title";
-			list_books(msg); 
-			return;
-		}
+	
 		
 		readBookFields(book);
 		bookDao.update(book);

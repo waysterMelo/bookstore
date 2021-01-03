@@ -56,7 +56,7 @@
 								<div class="collapse navbar-collapse" id="quickMenu">
 									<ul class="navbar-nav mx-auto">
 									
-<c:forEach var="categories" items="${categories}" varStatus="status">
+<c:forEach var="categories" items="${name_category}" varStatus="status">
 			<li class="nav-item">
        	 <a class="nav-link text-white font-weight-bold" href="view_category?id=${categories.categoryId}">
         <font size="+1"><b><c:out value="${categories.nameCategory}"></c:out></b></font>

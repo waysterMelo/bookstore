@@ -1,7 +1,9 @@
 package dao;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import entity.Review;
 
@@ -35,7 +37,21 @@ public class ReviewDao extends JpaDao<Review> implements GenericDao<Review>{
 		return super.countWithName("Review.count");
 	}
 	
-	
+	public Review findByCustomerAndBook(Integer customerId, Integer bookId) {
+		
+		Map<String, Object> parameteres = new HashMap<>();
+		parameteres.put("customerId", customerId);
+		parameteres.put("bookId", bookId);
+		
+		List<Review> list = super.findWithNamedQuery("Review.findByCustomerAndBook", parameteres);
+		
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+		
+		return null;
+		
+	}
 	
 
 }

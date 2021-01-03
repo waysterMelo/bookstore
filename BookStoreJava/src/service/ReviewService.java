@@ -36,7 +36,7 @@ public class ReviewService {
 			httpServletRequest.setAttribute("message", msg);
 		}
 		
-		String path = "/admin/review_list.jsp";
+		String path = "admin/review_list.jsp";
 		RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(path);
 		dispatcher.forward(httpServletRequest, httpServletResponse);
 	}
@@ -53,7 +53,7 @@ public class ReviewService {
 		
 		httpServletRequest.setAttribute("review", review);
 		
-		String path = "/admin/updated_review_form.jsp";
+		String path = "admin/updated_review_form.jsp";
 		RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(path);
 		dispatcher.forward(httpServletRequest, httpServletResponse); 
 		
@@ -90,6 +90,12 @@ public class ReviewService {
 		
 		list_all(msg);
 		
+	}
+
+	public void showrForm() throws ServletException, IOException {
+		String path = "frontend/write_a_review.jsp";
+		RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(path);
+	 	dispatcher.forward(httpServletRequest, httpServletResponse); 	
 	}
 
 }

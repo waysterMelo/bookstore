@@ -11,6 +11,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CategoryDao;
 import entity.Category;
@@ -18,6 +20,8 @@ import entity.Category;
 
 @WebFilter("/*")
 public class CommonFilter implements Filter {
+	
+	private static final String[] loginRequiredUrl = {"/view_profile","/edit_profile","/update_profile","write_review"};
 
 	private final CategoryDao categoryDao;
 	
@@ -31,17 +35,17 @@ public class CommonFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 	
-		HttpServletRequest Http_request = (HttpServletRequest) request;
-    	String path = Http_request.getRequestURI().substring(Http_request.getContextPath().length());
-    	
-    	if (!path.startsWith("/admin/")) {
-    		List<Category> list_category = categoryDao.listAll();
-        	request.setAttribute("categories", list_category);
+		HttpServletRequest httpRequest = (HttpServletRequest)request;
+
+		String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
+		
+		if (!path.endsWith("/admin")) {
+			List<Category> categoryList = categoryDao.listAll();
+			httpRequest.setAttribute("name_category", categoryList);
 		}
-    	
-    	
-    	
+		
 		chain.doFilter(request, response); 
+		
     	
 	}
 

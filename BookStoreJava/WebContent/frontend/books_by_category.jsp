@@ -44,11 +44,30 @@
 				<div class="card-footer ">
 					<h1 class="lead card-title text-center">${b.title}</h1>
 					<div class="row justify-content-center py-1 text-danger">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
+					
+					<c:forTokens items="${b.ratingStars}" delims="," var="star">
+					
+					<c:if test="${star eq 'on' }">
+					
+						<i class="fa fa-star"></i>
+					
+					</c:if>
+					
+						<c:if test="${star eq 'off' }">
+					
+						<i class="fa fa-star-o"></i>
+					
+					</c:if>
+					
+					<c:if test="${star eq 'half' }">
+					
+						<i class="fa fa-star-half-o"></i>
+					
+					</c:if>
+					
+					</c:forTokens>
+				
+				
 					</div>
 					<div class="row my-2"><span>By: </span> ${b.author} </div>
 					<div class="row justify-content-center">

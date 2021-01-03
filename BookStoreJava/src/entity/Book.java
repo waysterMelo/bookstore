@@ -182,7 +182,7 @@ public class Book implements java.io.Serializable {
 		this.lastUpdateTime = lastUpdateTime;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "book")
 	public Set<Review> getReviews() {
 		return this.reviews;
 	}
@@ -212,6 +212,53 @@ public class Book implements java.io.Serializable {
 		this.base64image = base64image;
 	}
 	
+	@Transient
+	public float average() {
+		float average_rating = 0.0f;
+		float sum = 0.0f;
+		
+		if (reviews.isEmpty()) {
+			return 0.0f;
+		}
+		
+		for (Review review : reviews) {
+			sum += review.getRating();
+		}
+		
+		average_rating = sum / reviews.size();
+		
+		
+		return average_rating;
+	}
+	
+	@Transient
+	public String getRatingsString(float averageRating) {
+		String result = "";
+		int numberOfStars = (int) averageRating;
+		
+		for (int i = 0; i < numberOfStars; i++) {
+			result += "on,";
+		}
+		int next = numberOfStars + 1;
+		
+		if (averageRating > numberOfStars) {
+			result += "half,";
+			next++;
+		}
+		
+		for (int j = next; j <= 5; j++) {
+			result += "off,";
+		}
+		
+		return result.substring(0, result.length() - 1);
+	}
+	
+	@Transient
+	public String getRatingStars() {
+		float averageRating = average();
+		
+		return getRatingsString(averageRating);
+	}
 	
 
 }
