@@ -111,12 +111,24 @@ public class CustomerService {
 			show_form_login_client(); 
 			
 		} else {
+			
+			HttpSession session = request.getSession();
 
 			request.getSession().setAttribute("logged_customer", customer);
 		
+			
+			Object obj_redirect_url = session.getAttribute("redirectUrl");
+			
+			if (obj_redirect_url != null) {
+				String redirect_url = (String)obj_redirect_url;
+				session.removeAttribute("redirectUrl"); 
+				response.sendRedirect(redirect_url); 
+			}else {
+			
+			
 			showPageMyProfile();
 			
-			
+			}
 		}
 		
 	}

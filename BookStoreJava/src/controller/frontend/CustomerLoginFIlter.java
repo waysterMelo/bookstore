@@ -54,6 +54,17 @@ public class CustomerLoginFIlter implements Filter {
 		String requestURLS = http_request.getRequestURI().toString();
 		
 		if (!loggedIn && isLoginRequired(requestURLS)) {
+			
+			String queryString = http_request.getQueryString();
+			String redirect_url = requestURLS;
+			
+			if (queryString != null) {
+				
+				redirect_url = redirect_url.concat("?").concat(queryString);
+			}
+			
+			session.setAttribute("redirectUrl", redirect_url); 
+			
 			String indexPage = "frontend/login_customer.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(indexPage);
 			dispatcher.forward(request, response); 
