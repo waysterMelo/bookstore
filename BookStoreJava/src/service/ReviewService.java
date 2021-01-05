@@ -8,8 +8,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.BookDao;
 import dao.ReviewDao;
 import entity.Book;
+import entity.Customer;
 import entity.Review;
 
 public class ReviewService {
@@ -36,7 +38,7 @@ public class ReviewService {
 			httpServletRequest.setAttribute("message", msg);
 		}
 		
-		String path = "admin/review_list.jsp";
+		String path = "/admin/review_list.jsp";
 		RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(path);
 		dispatcher.forward(httpServletRequest, httpServletResponse);
 	}
@@ -93,9 +95,41 @@ public class ReviewService {
 	}
 
 	public void showrForm() throws ServletException, IOException {
+		Integer book_id = Integer.parseInt(httpServletRequest.getParameter("bookId"));
+		BookDao dao = new BookDao();
+		Book book = dao.get(book_id);
+		
+		httpServletRequest.setAttribute("book", book);
+		
 		String path = "frontend/write_a_review.jsp";
 		RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(path);
 	 	dispatcher.forward(httpServletRequest, httpServletResponse); 	
+	}
+
+	public void submit_review() throws ServletException, IOException {
+		Integer id = Integer.parseInt(httpServletRequest.getParameter("bookId"));
+		Integer rating = Integer.parseInt(httpServletRequest.getParameter("rating"));
+		String headline = httpServletRequest.getParameter("headline");
+		String comment = httpServletRequest.getParameter("comment");
+		
+		Review review = new Review();
+		review.setHeadline(headline);
+		review.setComment(comment);
+		review.setRating(rating); 
+		
+		Book book = new Book();
+		book.setBookId(id);
+		review.setBook(book); 
+		
+		Customer customer = (Customer)httpServletRequest.getSession().getAttribute("logged_customer");
+		review.setCustomer(customer); 
+		
+		reviewDao.create(review);
+		
+		
+		String path = "frontend/write_review_done.jsp";
+		RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(path);
+		dispatcher.forward(httpServletRequest, httpServletResponse);
 	}
 
 }
