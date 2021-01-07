@@ -7,6 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.BookDao;
 import dao.ReviewDao;
@@ -99,10 +100,21 @@ public class ReviewService {
 		BookDao dao = new BookDao();
 		Book book = dao.get(book_id);
 		
+		HttpSession session = httpServletRequest.getSession();
 		httpServletRequest.setAttribute("book", book);
 		
-		String path = "frontend/write_a_review.jsp";
-		RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(path);
+		Customer customer = (Customer) session.getAttribute("logged_customer");
+		
+		Review existReview = reviewDao.findByCustomerAndBook(customer.getCustomerId(), book_id);
+		
+		String targetPage = "frontend/write_a_review.jsp";
+		
+		if (existReview != null) {
+			httpServletRequest.setAttribute("review", existReview);
+			targetPage = "frontend/review_info.jsp";
+		}
+		
+		RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(targetPage);
 	 	dispatcher.forward(httpServletRequest, httpServletResponse); 	
 	}
 
