@@ -1,0 +1,25 @@
+html{
+	height: auto;
+}
+
+
+#headerback{
+background-image: url("images/books.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+height: 700px
+}
+
+#navbarSupportedContent ul li a{
+	padding: 30px;
+	margin-left: 40px;
+}
+
+
+#input{
+	padding: 40px;
+}
+
+#inputButton{
+	padding: 20px;
+}
