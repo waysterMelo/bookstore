@@ -267,5 +267,15 @@ public class Book implements java.io.Serializable {
 		return getRatingsString(averageRating);
 	}
 	
+	
+	@Override
+	public int hashCode() {
+		return this.bookId;
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this.bookId.equals(((Book) obj).getBookId())) return true;
+		return false;
+	}
 }

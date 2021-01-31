@@ -35,6 +35,7 @@
 
   <!--Main layout-->
   <main>
+<form action="update_cart" method="post" id="cartForm">
     <div class="container">
 
       <!--Section: Block Content-->
@@ -81,18 +82,18 @@
                         
                         </div>
                         <div>
-                          <div class="def-number-input number-input safari_only mb-0 w-100">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                              class="minus"></button>
-                            <input class="quantity" min="0" name="quantity" value="1" type="number">
-                           
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                              class="plus"></button>
+                          <div class="def-number-input number-input safari_only mb-0 w-100 col-lg-12">
+                       
+                          <input type="hidden" name="bookId" value="${item.key.bookId}">
+
+                          <input type="text" class="quantity" min="1" name="quantity${status.index + 1}" value="${item.value}" size="5">
+                       
                           </div>
-                          <small id="passwordHelpBlock" class="form-text text-muted text-center">
-                            (Note, 1 piece)
-                          </small>
+                      	
                         </div>
+                    
+                      	<button class="btn btn-primary" type="submit">update</button>
+                
                       </div>
                       <div class="d-flex justify-content-between align-items-center">
                         <div>
@@ -101,7 +102,7 @@
                           <a href="#!" type="button" class="card-link-secondary small text-uppercase"><i
                               class="fas fa-heart mr-1"></i> Move to wish list </a>
                         </div>
-                        <p class="mb-0"><span><strong>$ ${item.key.price}</strong></span></p>
+          
                       </div>
                     </div>
                   </div>
@@ -174,7 +175,7 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                     Temporary amount
-                    <span>$ 20,00</span>
+                    <span>R$${cart.totalQtd},00</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                     Shipping
@@ -188,7 +189,7 @@
                       </strong>
                     </div>
                   
-                    <span><strong>$ 53.00</strong></span>
+                    <span><strong>R$${cart.totalQtd},00</strong></span>
                   </li>
                 </ul>
 
@@ -232,6 +233,7 @@
       <!--Section: Block Content-->
 
     </div>
+</form>
   </main>
   <!--Main layout-->
 

@@ -23,7 +23,7 @@ public class ShoppingCart {
 		cart.remove(book);
 	}
 	
-	public int get_total_qtd() {
+	public int getTotalQtd() {
 		int total = 0;
 		
 		Iterator<Book> iterator = cart.keySet().iterator();
@@ -50,4 +50,12 @@ public class ShoppingCart {
 		return cart.size();
 	} 
 
+	
+	public void updateCart(int[] bookIds, int[] qtds) {
+		for(int i = 0; i < bookIds.length; i++) {
+			Book b = new Book(bookIds[i]);
+			Integer value = qtds[i];
+			cart.put(b, value);
+		}
+	}
 }
