@@ -112,9 +112,11 @@
 
                 <hr class="mb-4">
                
-            
-                <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
-                  items to your cart does not mean booking them.</p>
+           		<div class="row justify-content-end">
+           			<div class="">
+						<a href="clear_cart" class="btn btn-primary">Clear cart</a>           			
+           			</div>
+           		</div>
 
               </div>
             </div>

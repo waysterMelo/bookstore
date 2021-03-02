@@ -34,6 +34,9 @@ public class JpaDao<E> {
 		return entity;
 	}
 	
+	
+	
+	
 	public E update(E entity) {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();

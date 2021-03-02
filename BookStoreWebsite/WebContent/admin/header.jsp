@@ -25,6 +25,12 @@
         <li class="nav-item">
         <a class="nav-link text-dark font-weight-bold" href="list_reviews">Reviews</a>
       </li>
+      
+       <li class="nav-item">
+        <a class="nav-link text-dark font-weight-bold" href="list_orders">Orders</a>
+      </li>
+      
+      
     </ul>
     </div>
 </nav>
